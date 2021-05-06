@@ -19,9 +19,6 @@ document.onreadystatechange = () => {
     // document ready
     if (bgMusic.duration > 0 && !bgMusic.paused) {
       audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
-    } else {
-      bgMusic.play();
-      audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
     }
 
     audioControl.onclick = function () {
