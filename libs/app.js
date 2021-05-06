@@ -13,26 +13,25 @@ for (var i of optionList) {
 var audioControl = document.getElementById("audioControl");
 var bgMusic = document.getElementById("bgAudio");
 
-if (bgMusic.duration > 0 && !bgMusic.paused) {
-  audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
-} else {
-  bgMusic.play();
-  audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
-}
-
-audioControl.onclick = function () {
-  if (audioControl.firstElementChild.className.includes("pause")) {
-    audioControl.innerHTML = `<i class="ti-control-play"></i>`;
-    bgMusic.pause();
-  } else {
-    audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
-    bgMusic.play();
-  }
-};
-
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
     console.log("fully loaded");
     // document ready
+    if (bgMusic.duration > 0 && !bgMusic.paused) {
+      audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
+    } else {
+      bgMusic.play();
+      audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
+    }
+
+    audioControl.onclick = function () {
+      if (audioControl.firstElementChild.className.includes("pause")) {
+        audioControl.innerHTML = `<i class="ti-control-play"></i>`;
+        bgMusic.pause();
+      } else {
+        audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
+        bgMusic.play();
+      }
+    };
   }
 };
