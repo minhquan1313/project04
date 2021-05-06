@@ -64,7 +64,6 @@ body {
   justify-content: center;
   background-position: center;
   background-size: cover;
-  filter: hue-rotate(30deg);
 }
 .bg::after {
   content: "";
