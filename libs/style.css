@@ -29,7 +29,7 @@ ul {
 
 @font-face {
   font-family: "sitka";
-  src: url(./resources/font/sitka/Sitka.ttc);
+  src: url(../resources/font/sitka/Sitka.ttc);
 }
 
 html {
