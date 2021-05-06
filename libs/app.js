@@ -29,4 +29,10 @@ audioControl.onclick = function () {
     bgMusic.play();
   }
 };
-// audioControl.onclick = alert("abc");
+
+document.onreadystatechange = () => {
+  if (document.readyState === "complete") {
+    console.log("fully loaded");
+    // document ready
+  }
+};
