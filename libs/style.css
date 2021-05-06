@@ -33,7 +33,7 @@ ul {
 }
 
 html {
-  font-family: "sitka";
+  font-family: "sitka", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
