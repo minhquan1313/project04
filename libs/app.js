@@ -12,7 +12,13 @@ for (var i of optionList) {
 
 var audioControl = document.getElementById("audioControl");
 var bgMusic = document.getElementById("bgAudio");
-bgMusic.play();
+
+if (bgMusic.duration > 0 && !bgMusic.paused) {
+  audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
+} else {
+  bgMusic.play();
+  audioControl.innerHTML = `<i class="ti-control-pause"></i>`;
+}
 
 audioControl.onclick = function () {
   if (audioControl.firstElementChild.className.includes("pause")) {
