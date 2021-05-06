@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFT.3D</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="./resources/font/themify-icons/themify-icons.css"
+    />
+  </head>
+  <body>
+    <audio
+      id="bgAudio"
+      src="./resources/music/y2mate.com_TinhBanDieuKy_ Beat_Masew_320kbps.mp3"
+      loop="true"
+      autoplay="true"
+    ></audio>
+
+    <div class="wrapper">
+      <div class="bg" style="background-image: url()">
+        <video
+          src="./resources/A Burst of Deep Sea Fireworks- Halitrephes Jelly - Nautilus Live_2.mp4"
+          loop
+          autoplay
+          muted
+          id="bgVideo"
+          height="100%"
+        ></video>
+      </div>
+
+      <div class="header">
+        <div class="logo">
+          <p class="logo__name fWhite">Nft<span>.3D</span></p>
+        </div>
+
+        <div class="search">
+          <div class="search__box">
+            <i class="ti-search search__box-icon"></i>
+            <input type="text" placeholder="Search" class="search__input" />
+          </div>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="audioControl" id="audioControl">
+          <i class="ti-control-pause"></i>
+        </div>
+
+        <ul class="optionList fGray">
+          <li class="optionList__item">
+            <p class="optionList__item-name">New</p>
+          </li>
+
+          <li class="optionList__item">
+            <p class="optionList__item-name">Art</p>
+          </li>
+
+          <li class="optionList__item">
+            <p class="optionList__item-name">3D</p>
+          </li>
+
+          <li class="optionList__item">
+            <p class="optionList__item-name">Virtual worlds</p>
+          </li>
+
+          <li class="optionList__item">
+            <p class="optionList__item-name">Collectibles</p>
+          </li>
+
+          <li class="optionList__item">
+            <p class="optionList__item-name">Utility</p>
+          </li>
+        </ul>
+
+        <div class="exploit">
+          <p class="exploit__content exploit__title">
+            NFT Marketplace
+            <br />
+            for Creators
+          </p>
+          <p class="exploit__content exploit__subTit">
+            Buy, sell and discover rare digital items
+          </p>
+          <div class="exploit__content">
+            <button class="exploit__btn exploit__btn--blue">Explore</button>
+            <button class="exploit__btn exploit__btn--white">Create</button>
+          </div>
+        </div>
+
+        <div class="leftPanel">
+          <button class="leftPanel__btn leftPanel__btn--up">
+            <i class="ti-angle-up"></i>
+          </button>
+
+          <ul class="leftPanel__album">
+            <li class="leftPanel__albumItem">
+              <img
+                src="./resources/img/item1.jpg"
+                alt=""
+                class="leftPanel__albumItemP"
+              />
+            </li>
+
+            <li class="leftPanel__albumItem">
+              <img
+                src="./resources/img/item2.jpg"
+                alt=""
+                class="leftPanel__albumItemP"
+              />
+            </li>
+          </ul>
+
+          <button class="leftPanel__btn leftPanel__btn--down">
+            <i class="ti-angle-down"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- --------------------------------------- -->
+    <script src="app.js"></script>
+  </body>
+</html>
