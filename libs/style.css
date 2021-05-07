@@ -224,6 +224,9 @@ body {
   border-radius: 999px;
   font-weight: bold;
   margin-right: 12px;
+  border: 1px solid transparent;
+  will-change: border, background-color, color;
+  transition: all 0.3s ease;
 }
 
 .exploit__btn--blue {
@@ -234,6 +237,19 @@ body {
 .exploit__btn--white {
   color: var(--black);
   background-color: white;
+}
+.exploit__btn:hover {
+  backdrop-filter: blur(8px);
+}
+.exploit__btn--white:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.exploit__btn--blue:hover {
+  color: #fff;
+  background-color: rgba(36, 109, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .leftPanel {
@@ -251,24 +267,67 @@ body {
   border-radius: 999px;
   font-size: 28px;
   padding: 24px 12px;
-  border: none;
+  border: 1px solid transparent;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
 }
 .leftPanel__btn i[class*="ti"] {
   font-weight: bold;
   color: white;
+  display: block;
+  transition: all 0.3s ease;
+}
+.leftPanel__btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.leftPanel__btn--up {
+.leftPanel__btn--up:hover i {
+  transform: translateY(-4px);
 }
 
-.leftPanel__btn--down {
+.leftPanel__btn--down:hover i {
+  transform: translateY(4px);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: rgba(40, 44, 52, 0.8);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popupImg__P {
+  width: 900px;
+}
+
+.popupImg__name {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 24px;
+  padding-top: 24px;
+  color: white;
+  width: fit-content;
 }
 
 .leftPanel__album {
   height: 436px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .leftPanel__albumItem {
@@ -277,6 +336,13 @@ body {
   margin: 12px var(--baseMargin);
   border-radius: 20px;
   overflow: hidden;
+  will-change: transform;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.leftPanel__albumItem:hover {
+  transform: scale(1.05);
+  z-index: 1;
 }
 
 .leftPanel__albumItemP {

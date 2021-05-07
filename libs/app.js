@@ -59,3 +59,12 @@ document.onreadystatechange = () => {
     };
   }
 };
+
+const albumPics = document.querySelectorAll(".leftPanel__albumItem");
+// console.log(albumPics);
+for (var i of albumPics) {
+  i.addEventListener("click", function (e) {
+    let imgLink = e.target.src;
+    console.log(imgLink);
+  });
+}

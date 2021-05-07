@@ -87,6 +87,13 @@
     <link rel="stylesheet" href="./libs/style.css" />
   </head>
   <body>
+    <div class="popup" style="display: none">
+      <div class="popupImg">
+        <img src="./resources/img/item1.jpg" alt="" class="popupImg__P" />
+        <p class="popupImg__name">Abc</p>
+      </div>
+    </div>
+
     <div class="wrapper">
       <div class="bg" style="background-image: url()">
         <video
@@ -173,6 +180,14 @@
           </button>
 
           <ul class="leftPanel__album">
+            <li class="leftPanel__albumItem leftPanel__albumItem--first">
+              <img
+                src="./resources/img/item2.jpg"
+                alt=""
+                class="leftPanel__albumItemP"
+              />
+            </li>
+
             <li class="leftPanel__albumItem">
               <img
                 src="./resources/img/item1.jpg"
@@ -184,6 +199,14 @@
             <li class="leftPanel__albumItem">
               <img
                 src="./resources/img/item2.jpg"
+                alt=""
+                class="leftPanel__albumItemP"
+              />
+            </li>
+
+            <li class="leftPanel__albumItem leftPanel__albumItem--last">
+              <img
+                src="./resources/img/item1.jpg"
                 alt=""
                 class="leftPanel__albumItemP"
               />
