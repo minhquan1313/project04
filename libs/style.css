@@ -106,11 +106,21 @@ body {
 
 .audioControl {
   position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: 999;
   bottom: 0;
-  right: 0;
+  right: var(--baseMargin);
 }
 .audioControl i {
   font-size: 40px;
+  border-left: 1px solid white;
+  user-select: none;
+}
+
+.audioControl__Name {
+  color: white;
+  padding-right: 4px;
 }
 
 .search {
@@ -150,7 +160,7 @@ body {
   color: white;
   position: absolute;
   top: 150px;
-  bottom: calc(var(--baseMargin) * 2);
+  bottom: calc(var(--baseMargin) * 1);
   left: 0;
   right: 0;
 }

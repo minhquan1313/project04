@@ -87,13 +87,6 @@
     <link rel="stylesheet" href="./libs/style.css" />
   </head>
   <body>
-    <audio
-      id="bgAudio"
-      src="./resources/music/y2mate.com_TinhBanDieuKy_ Beat_Masew_320kbps.mp3"
-      loop="true"
-      autoplay="true"
-    ></audio>
-
     <div class="wrapper">
       <div class="bg" style="background-image: url()">
         <video
@@ -120,8 +113,17 @@
       </div>
 
       <div class="body">
+        <audio
+          id="bgAudio"
+          src="./resources/music/Tình bạn diệu kỳ Beat - Masew.mp3"
+          loop
+          autoplay
+        ></audio>
+
         <div class="audioControl" id="audioControl">
+          <p class="audioControl__Name"></p>
           <i class="ti-control-play"></i>
+          <i class="ti-control-pause" style="display: none"></i>
         </div>
 
         <ul class="optionList fGray">
