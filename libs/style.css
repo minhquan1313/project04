@@ -373,6 +373,7 @@ body {
   height: 40px;
   border: 2px solid #fff;
   transform: skewX(-12deg) translateY(-43px);
+  border-radius: 3px;
   margin: 0 1px;
   animation: line-uDown var(--timeL-u) 0.4s forwards ease;
 }
@@ -390,15 +391,17 @@ body {
   border-right: unset;
   transform: skewX(-12deg);
   margin: 0 1px;
+  border-radius: 3px;
 }
 .line-4::after {
   content: "";
   position: absolute;
-  left: 12px;
-  top: 39px;
+  left: 10px;
+  top: 38px;
   width: 8px;
-  height: 74%;
+  height: 30px;
   border-left: 2px solid #fff;
+  border-radius: 3px;
 }
 
 .popupError__0 {
@@ -415,6 +418,7 @@ body {
   flex-shrink: 0;
   border: 2px solid #fff;
   transform: rotate(-64deg) skewY(-16deg);
+  border-radius: 3px;
 }
 .line-u0--1 {
   top: 31px;
