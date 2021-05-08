@@ -74,7 +74,6 @@
       sizes="16x16"
       href="./logo/favicon-16x16.png"
     />
-    <link rel="manifest" href="./logo/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
@@ -88,9 +87,43 @@
   </head>
   <body>
     <div class="popup" style="display: none">
-      <div class="popupImg">
+      <div class="popupImg" style="display: none">
         <img src="./resources/img/item1.jpg" alt="" class="popupImg__P" />
         <p class="popupImg__name">Abc</p>
+      </div>
+
+      <div class="popupError">
+        <div
+          class="popupError__P"
+          style="background-image: url(./resources/svg/access_denied.svg)"
+        ></div>
+
+        <p class="popupError__topDesc"></p>
+
+        <div class="popupError__404">
+          <div class="popupError__4">
+            <div class="line-u"></div>
+            <div class="line-u"></div>
+            <div class="line-4"></div>
+          </div>
+          <div class="popupError__0">
+            <!-- <div class="oval-u"></div> -->
+            <div class="line-u0 line-u0--1"></div>
+            <div class="line-u0 line-u0--2"></div>
+            <div class="line-u0 line-u0--3"></div>
+          </div>
+          <div class="popupError__4">
+            <div class="line-u"></div>
+            <div class="line-u"></div>
+            <div class="line-4"></div>
+          </div>
+        </div>
+        <!-- </p> -->
+
+        <p class="popupError__desc">
+          78deg Sorry but something went wrong or the site you've just clicked
+          is not yet developed 😭
+        </p>
       </div>
     </div>
 
@@ -107,7 +140,7 @@
       </div>
 
       <div class="header">
-        <div class="logo">
+        <div id="logo" class="logo">
           <p class="logo__name fWhite">Nft<span>.3D</span></p>
         </div>
 
