@@ -86,44 +86,10 @@
     <link rel="stylesheet" href="./libs/style.css" />
   </head>
   <body>
-    <div class="popup" style="display: none">
+    <div id="popup" class="popup" style="display: none">
       <div class="popupImg" style="display: none">
         <img src="./resources/img/item1.jpg" alt="" class="popupImg__P" />
         <p class="popupImg__name">Abc</p>
-      </div>
-
-      <div class="popupError">
-        <div
-          class="popupError__P"
-          style="background-image: url(./resources/svg/access_denied.svg)"
-        ></div>
-
-        <p class="popupError__topDesc"></p>
-
-        <div class="popupError__404">
-          <div class="popupError__4">
-            <div class="line-u"></div>
-            <div class="line-u"></div>
-            <div class="line-4"></div>
-          </div>
-          <div class="popupError__0">
-            <!-- <div class="oval-u"></div> -->
-            <div class="line-u0 line-u0--1"></div>
-            <div class="line-u0 line-u0--2"></div>
-            <div class="line-u0 line-u0--3"></div>
-          </div>
-          <div class="popupError__4">
-            <div class="line-u"></div>
-            <div class="line-u"></div>
-            <div class="line-4"></div>
-          </div>
-        </div>
-        <!-- </p> -->
-
-        <p class="popupError__desc">
-          78deg Sorry but something went wrong or the site you've just clicked
-          is not yet developed 😭
-        </p>
       </div>
     </div>
 
@@ -167,27 +133,27 @@
         </div>
 
         <ul class="optionList fGray">
-          <li class="optionList__item">
+          <li class="optionList__item --notDeveloped">
             <p class="optionList__item-name">New</p>
           </li>
 
-          <li class="optionList__item">
+          <li class="optionList__item --notDeveloped">
             <p class="optionList__item-name">Art</p>
           </li>
 
-          <li class="optionList__item">
+          <li class="optionList__item --notDeveloped">
             <p class="optionList__item-name">3D</p>
           </li>
 
-          <li class="optionList__item">
+          <li class="optionList__item --notDeveloped">
             <p class="optionList__item-name">Virtual worlds</p>
           </li>
 
-          <li class="optionList__item">
+          <li class="optionList__item --notDeveloped">
             <p class="optionList__item-name">Collectibles</p>
           </li>
 
-          <li class="optionList__item">
+          <li class="optionList__item --notDeveloped">
             <p class="optionList__item-name">Utility</p>
           </li>
         </ul>
@@ -202,13 +168,17 @@
             Buy, sell and discover rare digital items
           </p>
           <div class="exploit__content">
-            <button class="exploit__btn exploit__btn--blue">Explore</button>
-            <button class="exploit__btn exploit__btn--white">Create</button>
+            <button class="exploit__btn exploit__btn--blue --notDeveloped">
+              Explore
+            </button>
+            <button class="exploit__btn exploit__btn--white --notDeveloped">
+              Create
+            </button>
           </div>
         </div>
 
         <div class="leftPanel">
-          <button class="leftPanel__btn leftPanel__btn--up">
+          <button class="leftPanel__btn leftPanel__btn--up --notDeveloped">
             <i class="ti-angle-up"></i>
           </button>
 
@@ -221,7 +191,7 @@
               />
             </li>
 
-            <li class="leftPanel__albumItem">
+            <li class="leftPanel__albumItem --notDeveloped">
               <img
                 src="./resources/img/item1.jpg"
                 alt=""
@@ -229,7 +199,7 @@
               />
             </li>
 
-            <li class="leftPanel__albumItem">
+            <li class="leftPanel__albumItem --notDeveloped">
               <img
                 src="./resources/img/item2.jpg"
                 alt=""
@@ -246,7 +216,7 @@
             </li>
           </ul>
 
-          <button class="leftPanel__btn leftPanel__btn--down">
+          <button class="leftPanel__btn leftPanel__btn--down --notDeveloped">
             <i class="ti-angle-down"></i>
           </button>
         </div>

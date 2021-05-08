@@ -372,8 +372,14 @@ body {
   width: 8px;
   height: 40px;
   border: 2px solid #fff;
-  transform: skewX(-12deg);
+  transform: skewX(-12deg) translateY(-43px);
   margin: 0 1px;
+  animation: line-uDown var(--timeL-u) 0.4s forwards ease;
+}
+@keyframes line-uDown {
+  to {
+    transform: skewX(-12deg) translateY(0px);
+  }
 }
 .line-4 {
   position: relative;
