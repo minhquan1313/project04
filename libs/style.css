@@ -110,7 +110,7 @@ body {
   position: absolute;
   display: flex;
   align-items: center;
-  z-index: 999;
+  z-index: 100;
   bottom: 0;
   right: var(--baseMargin);
 }
@@ -298,11 +298,11 @@ body {
 
 .popup {
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 99;
   background-color: rgba(40, 44, 52, 0.6);
   backdrop-filter: blur(16px);
   display: flex;
@@ -810,6 +810,15 @@ body {
   /* margin-bottom: var(--baseMargin); */
   /* font-family: "Courier New", Courier, monospace; */
   /* text-shadow: 1px 1px 2px; */
+}
+
+.popUpLoader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--black-little);
 }
 
 .leftPanel__album {

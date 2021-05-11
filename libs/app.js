@@ -109,6 +109,7 @@ document.onreadystatechange = () => {
 const popup = document.getElementById("popup");
 const delay = 200;
 const bgVideo = document.getElementById("bgVideo");
+// console.log(bgVideo.readyState);
 
 // Initialize some function for PopUp -------------------------------
 function getPopup() {
