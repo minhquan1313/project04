@@ -99,27 +99,42 @@
               <div class="topBunnyEar"></div>
 
               <div class="roundShape">
-                <div class="xShape" style="--rotate: 45deg"></div>
+                <div
+                  class="xShape"
+                  style="--rotate: 45deg; --xShape-delay: 0.2s"
+                ></div>
 
-                <div class="xShape" style="--rotate: -45deg"></div>
+                <div
+                  class="xShape"
+                  style="--rotate: -45deg; --xShape-delay: 0s"
+                ></div>
               </div>
 
               <div class="msgBox">
-                <div class="msgBox__inner">
+                <div class="msgBox__inner" style="--xShape-delay: 0.4s">
                   <div class="roundShape roundShape--msg">
-                    <div class="xShape" style="--rotate: 0deg"></div>
+                    <div
+                      class="xShape"
+                      style="--rotate: 0deg; --xShape-delay: 0.6s"
+                    ></div>
                   </div>
                 </div>
 
-                <div class="msgBox__inner">
+                <div class="msgBox__inner" style="--xShape-delay: 0.5s">
                   <div class="roundShape roundShape--msg">
-                    <div class="xShape" style="--rotate: 0deg"></div>
+                    <div
+                      class="xShape"
+                      style="--rotate: 0deg; --xShape-delay: 0.7s"
+                    ></div>
                   </div>
                 </div>
 
-                <div class="msgBox__inner">
+                <div class="msgBox__inner" style="--xShape-delay: 0.6s">
                   <div class="roundShape roundShape--msg">
-                    <div class="xShape" style="--rotate: 0deg"></div>
+                    <div
+                      class="xShape"
+                      style="--rotate: 0deg; --xShape-delay: 0.8s"
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -143,6 +158,30 @@
             </div>
           </div>
         </div>
+
+        <div class="popupError__404">
+          <div class="popupError__404-inner">
+            <div class="popupError__4">
+              <div class="line-u" style="--timeL-u: 0s"></div>
+              <div class="line-u" style="--timeL-u: 0.3s"></div>
+              <div class="line-4"></div>
+            </div>
+            <div class="popupError__0">
+              <div class="line-u0 line-u0--1"></div>
+              <div class="line-u0 line-u0--2"></div>
+              <div class="line-u0 line-u0--3"></div>
+            </div>
+            <div class="popupError__4">
+              <div class="line-u" style="--timeL-u: 0.1s"></div>
+              <div class="line-u" style="--timeL-u: 0.4s"></div>
+              <div class="line-4"></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="popupError__desc">
+          Sorry the Virtual worlds is not yet developed 😭
+        </p>
       </div> -->
     </div>
 
@@ -176,6 +215,7 @@
           id="bgAudio"
           src="./resources/music/Tình bạn diệu kỳ Beat - Masew.mp3"
           loop
+          autoplay
         ></audio>
 
         <div class="audioControl" id="audioControl">
@@ -201,7 +241,10 @@
             <p class="optionList__item-name">Virtual worlds</p>
           </li>
 
-          <li class="optionList__item --notDeveloped">
+          <li
+            data-BINH="This is Binh's Data"
+            class="optionList__item --notDeveloped"
+          >
             <p class="optionList__item-name">Collectibles</p>
           </li>
 

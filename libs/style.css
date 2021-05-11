@@ -407,11 +407,39 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(var(--rotate));
+  transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0);
   width: 80%;
   height: 10%;
   background-color: white;
   border-radius: 4px;
+  animation: xShape 0.6s var(--xShape-delay) ease forwards;
+}
+@keyframes xShape {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0);
+  }
+  40% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1.15);
+  }
+  60% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0.85);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1.1);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0.9);
+  }
+  90% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1.05);
+  }
+
+  95% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0.95);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1);
+  }
 }
 
 .msgBox {
@@ -428,6 +456,33 @@ body {
   /* background-color: black; */
 }
 
+@keyframes xShape2 {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(0.85);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1.05);
+  }
+
+  95% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .msgBox__inner {
   position: relative;
   width: 60%;
@@ -435,6 +490,8 @@ body {
   border-radius: 4px;
   border: 1px solid rgb(230, 230, 230);
   background-color: #fff;
+  transform: scale(0);
+  animation: xShape2 0.6s var(--xShape-delay) ease forwards;
 }
 .msgBox__inner::after {
   position: absolute;
@@ -481,6 +538,26 @@ body {
   border-bottom: 1px solid #ffe6d0;
 }
 
+@keyframes flowerGrow--skew10 {
+  from {
+    transform-origin: bottom;
+    transform: skewX(10deg) scale(0);
+  }
+  to {
+    transform-origin: bottom;
+    transform: skewX(10deg) scale(1);
+  }
+}
+@keyframes flowerGrow--skew-8 {
+  from {
+    transform-origin: bottom;
+    transform: translateX(-2px) skewX(-8deg) scale(0);
+  }
+  to {
+    transform-origin: bottom;
+    transform: translateX(-2px) skewX(-8deg) scale(1);
+  }
+}
 .flower1,
 .flower2 {
   position: absolute;
@@ -488,9 +565,12 @@ body {
   bottom: 0;
   width: 1px;
   height: 10px;
-  transform: skewX(10deg);
+  transform: skewX(10deg) scale(1);
   color: #fff;
   background-color: currentColor;
+}
+.flower1 {
+  animation: flowerGrow--skew10 0.6s ease forwards;
 }
 .flower1::after {
   position: absolute;
@@ -548,7 +628,8 @@ body {
 /* ... */
 .flower2 {
   bottom: 9px;
-  transform: skewX(-8deg);
+  transform: translateX(-2px) skewX(-8deg) scale(0);
+  animation: flowerGrow--skew-8 0.6s 0.3s ease-out forwards;
 }
 .flower2::before {
   bottom: 100%;
@@ -639,7 +720,7 @@ body {
   transform: skewX(-12deg) translateY(-43px);
   border-radius: 3px;
   margin: 0 1px;
-  animation: line-uDown var(--timeL-u) 0.4s forwards ease;
+  animation: line-uDown 0.4s var(--timeL-u) forwards ease;
 }
 @keyframes line-uDown {
   to {
