@@ -95,6 +95,9 @@ body {
 
 .logo {
   margin-left: var(--baseMargin);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   cursor: pointer;
 }
@@ -117,6 +120,9 @@ body {
 .audioControl i {
   font-size: 40px;
   border-left: 1px solid white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   cursor: pointer;
 }
@@ -154,7 +160,21 @@ body {
   color: white;
   text-align: right;
   width: 100px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
   max-width: fit-content;
+}
+.search__input::-webkit-input-placeholder {
+  color: gray;
+}
+.search__input::-moz-placeholder {
+  color: gray;
+}
+.search__input:-ms-input-placeholder {
+  color: gray;
+}
+.search__input::-ms-input-placeholder {
+  color: gray;
 }
 .search__input::placeholder {
   color: gray;
@@ -171,12 +191,17 @@ body {
 
 .optionList {
   cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
 .optionList__item {
   /* margin: var(--baseMargin2) 0 var(--baseMargin2) var(--baseMargin); */
   padding: calc(var(--baseMargin) / 4) var(--baseMargin);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   position: relative;
 }
@@ -244,6 +269,7 @@ body {
   background-color: white;
 }
 .exploit__btn:hover {
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 .exploit__btn--white:hover {
@@ -275,6 +301,7 @@ body {
   margin: 12px 0;
   border: 1px solid transparent;
   background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   transition: all 0.3s ease;
 }
@@ -304,6 +331,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(40, 44, 52, 0.6);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   display: flex;
   justify-content: center;
@@ -325,6 +353,8 @@ body {
   font-size: 24px;
   padding-top: 24px;
   color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -412,7 +442,35 @@ body {
   height: 10%;
   background-color: white;
   border-radius: 4px;
+  -webkit-animation: xShape 0.6s var(--xShape-delay) ease forwards;
   animation: xShape 0.6s var(--xShape-delay) ease forwards;
+}
+@-webkit-keyframes xShape {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0);
+  }
+  40% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1.15);
+  }
+  60% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0.85);
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1.1);
+  }
+  80% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0.9);
+  }
+  90% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1.05);
+  }
+
+  95% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(0.95);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--rotate)) scale(1);
+  }
 }
 @keyframes xShape {
   0% {
@@ -456,6 +514,34 @@ body {
   /* background-color: black; */
 }
 
+@-webkit-keyframes xShape2 {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(0.85);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1.05);
+  }
+
+  95% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes xShape2 {
   0% {
     transform: scale(0);
@@ -491,6 +577,7 @@ body {
   border: 1px solid rgb(230, 230, 230);
   background-color: #fff;
   transform: scale(0);
+  -webkit-animation: xShape2 0.6s var(--xShape-delay) ease forwards;
   animation: xShape2 0.6s var(--xShape-delay) ease forwards;
 }
 .msgBox__inner::after {
@@ -538,6 +625,17 @@ body {
   border-bottom: 1px solid #ffe6d0;
 }
 
+@-webkit-keyframes flowerGrow--skew10 {
+  from {
+    transform-origin: bottom;
+    transform: skewX(10deg) scale(0);
+  }
+  to {
+    transform-origin: bottom;
+    transform: skewX(10deg) scale(1);
+  }
+}
+
 @keyframes flowerGrow--skew10 {
   from {
     transform-origin: bottom;
@@ -546,6 +644,16 @@ body {
   to {
     transform-origin: bottom;
     transform: skewX(10deg) scale(1);
+  }
+}
+@-webkit-keyframes flowerGrow--skew-8 {
+  from {
+    transform-origin: bottom;
+    transform: translateX(-2px) skewX(-8deg) scale(0);
+  }
+  to {
+    transform-origin: bottom;
+    transform: translateX(-2px) skewX(-8deg) scale(1);
   }
 }
 @keyframes flowerGrow--skew-8 {
@@ -570,6 +678,7 @@ body {
   background-color: currentColor;
 }
 .flower1 {
+  -webkit-animation: flowerGrow--skew10 0.6s ease forwards;
   animation: flowerGrow--skew10 0.6s ease forwards;
 }
 .flower1::after {
@@ -629,6 +738,7 @@ body {
 .flower2 {
   bottom: 9px;
   transform: translateX(-2px) skewX(-8deg) scale(0);
+  -webkit-animation: flowerGrow--skew-8 0.6s 0.3s ease-out forwards;
   animation: flowerGrow--skew-8 0.6s 0.3s ease-out forwards;
 }
 .flower2::before {
@@ -700,6 +810,9 @@ body {
   color: #144bdc;
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   overflow: hidden;
 }
@@ -720,7 +833,13 @@ body {
   transform: skewX(-12deg) translateY(-43px);
   border-radius: 3px;
   margin: 0 1px;
+  -webkit-animation: line-uDown 0.4s var(--timeL-u) forwards ease;
   animation: line-uDown 0.4s var(--timeL-u) forwards ease;
+}
+@-webkit-keyframes line-uDown {
+  to {
+    transform: skewX(-12deg) translateY(0px);
+  }
 }
 @keyframes line-uDown {
   to {
@@ -845,7 +964,9 @@ body {
 }
 
 .leftPanel__albumItemP {
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
   object-position: center;
   width: 100%;
   height: 100%;
