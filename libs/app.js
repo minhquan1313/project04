@@ -1,35 +1,36 @@
 function removeLoader() {
   let loader = document.getElementById("popUpLoader");
-  let squid = document.getElementsByClassName("loader__animal");
-  let lines = document.getElementsByClassName("bombLines");
+  if (loader) {
+    let squid = document.getElementsByClassName("loader__animal");
+    let lines = document.getElementsByClassName("bombLines");
 
-  lines[0].style.animation = "bombLines 5s ease-out forwards";
-  squid[0].setAttribute(
-    "style",
-    "transition: all ease 0.3s; transform: scale(0);"
-  );
-  setTimeout(() => {
-    let popup = document.getElementById("popup");
-    popup.setAttribute(
-      "style",
-      "backdrop-filter: none; background-color: transparent; pointer-events: none"
-    );
-    loader.setAttribute(
-      "style",
-      "transition: all ease-in 1s; transform: translateY(-100%)"
-    );
     setTimeout(() => {
-      popup.innerHTML = "";
+      lines[0].style.animation = "bombLines 5s linear forwards";
+      squid[0].setAttribute(
+        "style",
+        "transition: all ease 0.3s; transform: scale(0);"
+      );
       setTimeout(() => {
-        popup.removeAttribute("style");
-        popup.style.display = "none";
-      }, 300);
+        let popup = document.getElementById("popup");
+        popup.setAttribute(
+          "style",
+          "backdrop-filter: none; background-color: transparent; pointer-events: none"
+        );
+        loader.setAttribute(
+          "style",
+          "transition: all ease-in 0.6s; transform: translateY(-100%)"
+        );
+        setTimeout(() => {
+          popup.innerHTML = "";
+          popup.setAttribute("style", "display: none");
+        }, 700);
+      }, 800);
     }, 1000);
-  }, 800);
+  }
 }
 // Getting url for embedding to the website logo --------------------
 var redirectParentWebpage = document.getElementById("logo");
-redirectParentWebpage.onclick = function () {
+redirectParentWebpage.onclick = () => {
   if (window.location.protocol.includes("http")) {
     let tempUrl = window.location.href;
 
@@ -53,8 +54,7 @@ redirectParentWebpage.onclick = function () {
     } else {
       window.location.replace(tempUrl.slice(0, tempUrlLength));
     }
-  } else
-    console.log("Failed to redirect to home page because this is not http(s)");
+  } else alert("Failed to redirect to home page because this is not http(s)");
 
   // window.location.replace();
 };
@@ -128,7 +128,7 @@ document.onreadystatechange = () => {
   }
 };
 
-// Left hand pictures -----------------------------------------------
+// Right hand pictures -----------------------------------------------
 // const albumPics = document.querySelectorAll(".leftPanel__albumItem");
 // for (var i of albumPics) {
 //   i.addEventListener("click", function (e) {
