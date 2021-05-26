@@ -269,8 +269,6 @@ body {
   background-color: white;
 }
 .exploit__btn:hover {
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
 }
 .exploit__btn--white:hover {
   color: #fff;
@@ -366,6 +364,22 @@ body {
   background-color: rgba(40, 44, 52, 0.4);
   border-radius: 32px;
   width: 500px;
+}
+@-webkit-keyframes popupError {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes popupError {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .popupError__P {
@@ -734,7 +748,7 @@ body {
   border-radius: 0 180px 10px;
   transform: rotate(-5deg);
 }
-/* ... */
+
 .flower2 {
   bottom: 9px;
   transform: translateX(-2px) skewX(-8deg) scale(0);
@@ -930,22 +944,1010 @@ body {
   /* font-family: "Courier New", Courier, monospace; */
   /* text-shadow: 1px 1px 2px; */
 }
-
+/* ------------------------------------------------------------------ */
 .popUpLoader {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: var(--black-little);
 }
 
+.bombLines {
+  position: absolute;
+  transform: scale(0);
+  width: 400px;
+  height: 400px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: all ease 0.3s;
+  /* animation: bombLines 5s 1s ease-out forwards; */
+}
+@keyframes bombLines {
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.bombLines-l {
+  position: absolute;
+  width: 1px;
+  background-color: #93dcfc;
+  border-radius: 50% 50% 0 0;
+}
+.bombLines-l:nth-child(2n - 1) {
+  background-color: #40c1fa;
+}
+.bombLines-l:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30%;
+}
+.bombLines-l:nth-child(2) {
+  top: 13%;
+  right: 36%;
+  transform: rotate(25.7deg);
+  height: 20%;
+}
+.bombLines-l:nth-child(3) {
+  top: 15%;
+  right: 22%;
+  transform: rotate(51.4deg);
+  height: 30%;
+}
+.bombLines-l:nth-child(4) {
+  top: 35%;
+  right: 21%;
+  transform: rotate(77.1deg);
+  height: 20%;
+}
+.bombLines-l:nth-child(5) {
+  bottom: 25%;
+  right: 17%;
+  transform: rotate(102.9deg);
+  height: 30%;
+}
+.bombLines-l:nth-child(6) {
+  bottom: 19%;
+  right: 27%;
+  transform: rotate(128.6deg);
+  height: 20%;
+}
+.bombLines-l:nth-child(7) {
+  bottom: 3%;
+  right: 36%;
+  transform: rotate(154.3deg);
+  height: 30%;
+}
+.bombLines-l:nth-child(8) {
+  /* Cot */
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  height: 20%;
+}
+.bombLines-l:nth-child(9) {
+  bottom: 3%;
+  left: 36%;
+  transform: rotate(-154.3deg);
+  height: 30%;
+}
+.bombLines-l:nth-child(10) {
+  bottom: 19%;
+  left: 27%;
+  transform: rotate(-128.6deg);
+  height: 20%;
+}
+.bombLines-l:nth-child(11) {
+  bottom: 25%;
+  left: 17%;
+  transform: rotate(-102.9deg);
+  height: 30%;
+}
+.bombLines-l:nth-child(12) {
+  top: 35%;
+  left: 21%;
+  transform: rotate(-77.1deg);
+  height: 20%;
+}
+.bombLines-l:nth-child(13) {
+  top: 15%;
+  left: 22%;
+  transform: rotate(-51.4deg);
+  height: 30%;
+}
+.bombLines-l:nth-child(14) {
+  top: 13%;
+  left: 36%;
+  transform: rotate(-25.7deg);
+  height: 20%;
+}
+
+@keyframes loader__animal {
+  50% {
+    bottom: -10vh;
+  }
+  70% {
+    bottom: 10vh;
+  }
+  80% {
+    bottom: -5vh;
+  }
+  90% {
+    bottom: 5vh;
+  }
+  100% {
+    bottom: 0vh;
+  }
+}
+.loader__animal {
+  position: relative;
+  width: 150px;
+  bottom: 100vh;
+  animation: loader__animal 0.6s ease-out forwards;
+}
+.loader__animal::before {
+  /* content: ""; */
+  position: absolute;
+  background-color: #a3003c;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 60vh;
+  left: 50%;
+  bottom: 50%;
+}
+
+.loader__Progr {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  color: white;
+  font-family: monospace;
+  opacity: 0;
+  animation: loader__Progr 0.4s 0.6s ease-out forwards;
+}
+@keyframes loader__Progr {
+  from {
+    transform: scale(0) translateX(-50%);
+  }
+  to {
+    transform-origin: bottom;
+    transform: scale(1) translateX(-50%);
+    opacity: 1;
+  }
+}
+.loader__Progr .loadDot {
+  color: currentColor;
+  animation: loadDot 1s ease infinite;
+}
+.loadDot:nth-child(1) {
+  animation-delay: -0.667s;
+}
+.loadDot:nth-child(2) {
+  animation-delay: -0.333s;
+}
+@keyframes loadDot {
+  0% {
+    color: currentColor;
+  }
+  33% {
+    color: var(--black-little);
+  }
+  100% {
+    color: var(--black-little);
+  }
+}
+
+.loader__squid {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  z-index: 1;
+  color: #ff3c7d;
+}
+/* Drawing the squid at loading screen ------------------------------ */
+.squid__head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 100px;
+  height: 104px;
+  background-color: currentColor;
+  border-radius: 90px 88px 96px 83px;
+  overflow: hidden;
+}
+.squid__head::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -20px;
+  width: 120px;
+  height: 150px;
+  background-color: #ff5e93;
+  border-radius: 99px;
+}
+.squid__head-top {
+  position: absolute;
+  bottom: 56px;
+  left: 24px;
+  width: 84px;
+  height: 104px;
+  background-color: #ff3c7d;
+  border-radius: 50%;
+  transform: rotate(25deg);
+  overflow: hidden;
+}
+.squid__head-top::after {
+  content: "";
+  position: absolute;
+  top: -74px;
+  left: 0px;
+  width: 120px;
+  height: 150px;
+  background-color: #ff5e93;
+  border-radius: 99px;
+}
+.squid__head-top2 {
+  position: absolute;
+  bottom: 57px;
+  right: 26px;
+  width: 84px;
+  height: 104px;
+  background-color: #ff5e93;
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+
+.squid__eye {
+  position: absolute;
+  transform: rotate(-45deg) translateX(0px);
+  top: 54px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  background-color: #ffa2c1;
+  border-radius: 99px;
+  --top: 54px;
+  animation: squid__eye 4s linear infinite;
+  overflow: hidden;
+}
+.squid__eye::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 6px;
+  width: 6px;
+  background-color: #1c314e;
+  border-radius: 9px;
+  animation: squid__eyeAfter 4s linear infinite;
+}
+/* 
+base animation 4s
+@keyframes  {
+  0% {
+  }
+  3% {
+  }
+  6% {
+  }
+  12% {
+  }
+  15% {
+  }
+  18% {
+  }
+  21% {
+  }
+  24% {
+  }
+  27% {
+  }
+  30% {
+  }
+  33% {
+  }
+  36% {
+  }
+  39% {
+  }
+  42% {
+  }
+  45% {
+  }
+  48% {
+  }
+  51% {
+  }
+  54% {
+  }
+  57% {
+  }
+  60% {
+  }
+  63% {
+  }
+  66% {
+  }
+  69% {
+  }
+  72% {
+  }
+  75% {
+  }
+  78% {
+  }
+  81% {
+  }
+  84% {
+  }
+  87% {
+  }
+  90% {
+  }
+  93% {
+  }
+  96% {
+  }
+  99% {
+  }
+} 
+base animation 4s--
+*/
+@keyframes squid__eye {
+  0% {
+  }
+  3% {
+    top: calc(var(--top) + 9px);
+    height: 0;
+  }
+  6% {
+    top: var(--top);
+    height: 18px;
+  }
+  12% {
+    top: calc(var(--top) + 9px);
+    height: 0;
+  }
+  15% {
+    top: var(--top);
+    height: 18px;
+  }
+}
+@keyframes squid__eyeAfter {
+  15% {
+    left: 50%;
+    top: 50%;
+  }
+  21% {
+    left: 70%;
+    top: 50%;
+  }
+  27% {
+    left: 50%;
+    top: 70%;
+  }
+  95% {
+    top: 70%;
+  }
+  /* 100% {
+    top: 70%;
+  } */
+}
+.squid__eye-sec {
+  top: 23px;
+  left: unset;
+  right: 33px;
+  --top: 23px;
+}
+
+.squid__mouth {
+  position: absolute;
+  top: 73px;
+  left: 73px;
+  transform: rotate(-45deg);
+  width: 8px;
+  height: 4px;
+  color: #a3003c;
+  background-color: currentColor;
+  animation: squid__mouth 4s linear infinite;
+}
+@keyframes squid__mouth {
+  27% {
+    top: 73px;
+    left: 73px;
+    width: 8px;
+  }
+  30% {
+    top: 72px;
+    left: 67px;
+    width: 18px;
+  }
+  39% {
+    top: 73px;
+    left: 73px;
+    width: 8px;
+  }
+  42% {
+    top: 72px;
+    left: 67px;
+    width: 18px;
+  }
+  51% {
+    top: 73px;
+    left: 73px;
+    width: 8px;
+  }
+  54% {
+    top: 73px;
+    left: 67px;
+    width: 18px;
+  }
+  60% {
+    top: 73px;
+    left: 73px;
+    width: 8px;
+  }
+}
+.squid__mouth::after {
+  transform: rotate(20deg);
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 9px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+}
+.squid__mouth::before {
+  transform: rotate(-20deg);
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 9px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+}
+.squid__mouth-smooth {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 5px;
+  background-color: #ff3c7d;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.squid__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #a3003c;
+  --rotateDot: -45deg;
+  transform: rotate(-45deg);
+  animation: squid__dot 0.4s linear alternate infinite;
+}
+@keyframes squid__dot {
+  to {
+    transform: rotate(var(--rotateDot)) translateX(-1px);
+  }
+}
+
+.squid__dot--small {
+  width: 6px;
+  height: 9px;
+}
+
+.squid__dot--big {
+  width: 11px;
+  height: 16px;
+}
+
+.squid__dot--big-less {
+  width: 13px;
+  height: 9px;
+}
+
+.squid__dot--biggest {
+  width: 24px;
+  height: 10px;
+}
+
+.squid__dot1 {
+  top: 80px;
+  left: 44px;
+}
+
+.squid__dot2 {
+  top: 42px;
+  left: 5px;
+  background-color: #e20a62;
+}
+
+.squid__dot3 {
+  top: 36px;
+  left: 74px;
+  background-color: #e20a62;
+}
+
+.squid__dot4 {
+  top: 75px;
+  left: 25px;
+}
+
+.squid__dot5 {
+  top: 20px;
+  left: 79px;
+  background-color: #e20a62;
+}
+
+.squid__dot6 {
+  top: 7px;
+  left: 46px;
+  --rotateDot: 0deg;
+
+  transform: rotate(0deg);
+  background-color: #ffa2c1;
+}
+
+.squid__dot7 {
+  top: 7px;
+  left: 16px;
+  --rotateDot: -16deg;
+  transform: rotate(-16deg);
+  background-color: #ffa2c1;
+}
+
+.squid__bubble {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #40c1fa;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: upAndDown 1s ease-in-out alternate infinite;
+}
+.squid__bubble::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 3px;
+  width: 100%;
+  height: 100%;
+  background-color: #93dcfc;
+  border-radius: 50%;
+}
+@keyframes upAndDown {
+  to {
+    transform: translateY(10px);
+  }
+}
+
+.squid__bubble1 {
+  top: 61px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.squid__bubble2 {
+  top: 52px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  z-index: -1;
+}
+
+.squid__bubble3 {
+  top: 75px;
+  left: 15px;
+  z-index: -1;
+}
+
+.squid__bubble4 {
+  top: 40px;
+  right: 18px;
+}
+
+.squid_tentacle1,
+.squid_tentacle2,
+.squid_tentacle3,
+.squid_tentacle4,
+.squid_tentacle5,
+.squid_tentacle6 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  width: 30px;
+  height: 30px;
+  border-radius: 60% 6px;
+}
+/* ... */
+@keyframes squid_tentacle {
+  0% {
+  }
+  100% {
+    transform: rotate(var(--baseRotate));
+  }
+}
+.squid_tentacle1 {
+  top: 66px;
+  left: 30px;
+  background-color: currentColor;
+  transform: rotate(-5deg);
+  --baseRotate: 15deg;
+}
+
+.loader__squid > *[class*="squid_tentacle"] *[class*="squid_tentacle"] {
+  position: absolute;
+  top: 11px;
+  left: -11px;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  border-radius: 100% 50% 100% 4px;
+  transform-origin: calc(100% - 4px) 4px;
+  animation: squid_tentacle 3s ease-in-out alternate infinite;
+}
+.squid_tentacle1 .squid_tentaclea {
+  top: 18px !important;
+  left: -10px !important;
+  transform: rotate(2deg);
+}
+.squid_tentacle1 .squid_tentacleb {
+  transform: rotate(45deg);
+}
+.squid_tentacle1 .squid_tentaclec {
+  transform: rotate(45deg);
+}
+.squid_tentacle1 .squid_tentacled {
+  transform: rotate(-60deg);
+}
+.squid_tentacle1 .squid_tentaclee {
+  transform: rotate(-26deg);
+  --baseRotate: -20deg;
+  color: #ff5e93;
+}
+.squid_tentacle1 .squid_tentaclef {
+  transform: rotate(-40deg);
+}
+.squid_tentacle1 .squid_tentacleg {
+  transform: rotate(34deg);
+}
+.squid_tentaclez {
+  transform: rotate(6deg);
+  height: 12px !important;
+}
+
+.squid_tentacle2 {
+  top: 76px;
+  left: 46px;
+  background-color: currentColor;
+  transform: rotate(-34deg);
+  --baseRotate: -20deg;
+}
+.squid_tentacle2 .squid_tentaclea {
+  top: 18px !important;
+  left: -10px !important;
+  transform: rotate(2deg);
+}
+.squid_tentacle2 .squid_tentacleb {
+  transform: rotate(45deg);
+}
+.squid_tentacle2 .squid_tentaclec {
+  transform: rotate(30deg);
+}
+.squid_tentacle2 .squid_tentacled {
+  transform: rotate(-30deg);
+}
+.squid_tentacle2 .squid_tentaclee {
+  transform: rotate(-36deg);
+}
+.squid_tentacle2 .squid_tentaclef {
+  transform: rotate(-50deg);
+  color: #ff5e93;
+  --baseRotate: 20deg;
+}
+.squid_tentacle2 .squid_tentacleg {
+  transform: rotate(-30deg);
+}
+.squid_tentacle2 .squid_tentacleh {
+  transform: rotate(-20deg);
+}
+.squid_tentacle2 .squid_tentaclei {
+  transform: rotate(16deg);
+}
+.squid_tentacle2 .squid_tentaclej {
+  transform: rotate(30deg);
+}
+.squid_tentacle2 .squid_tentaclek {
+  transform: rotate(30deg);
+}
+.squid_tentacle2 .squid_tentaclez {
+  transform: rotate(26deg);
+}
+
+.squid_tentacle3 {
+  top: 78px;
+  left: 67px;
+  background-color: currentColor;
+  transform: rotate(-50deg);
+  --baseRotate: 30deg;
+}
+.squid_tentacle3 .squid_tentaclea {
+  top: 17px !important;
+  left: -7px !important;
+  transform: rotate(2deg);
+}
+.squid_tentacle3 .squid_tentacleb {
+  transform: rotate(16deg);
+}
+.squid_tentacle3 .squid_tentaclec {
+  transform: rotate(10deg);
+}
+.squid_tentacle3 .squid_tentacled {
+  transform: rotate(-40deg);
+}
+.squid_tentacle3 .squid_tentaclee {
+  transform: rotate(-36deg);
+  color: #ff5e93;
+  --baseRotate: -20deg;
+}
+.squid_tentacle3 .squid_tentaclef {
+  transform: rotate(-40deg);
+}
+.squid_tentacle3 .squid_tentacleg {
+  transform: rotate(-40deg);
+}
+.squid_tentacle3 .squid_tentacleh {
+  transform: rotate(-10deg);
+}
+.squid_tentacle3 .squid_tentacleh::before,
+.squid_tentacle3 .squid_tentaclei::before,
+.squid_tentacle3 .squid_tentaclej::before,
+.squid_tentacle3 .squid_tentaclek::before,
+.squid_tentacle3 .squid_tentaclel::before,
+.squid_tentacle3 .squid_tentaclem::before,
+.squid_tentacle4 .squid_tentaclee::before,
+.squid_tentacle4 .squid_tentaclef::before,
+.squid_tentacle4 .squid_tentacleg::before,
+.squid_tentacle2 .squid_tentacleh::before,
+.squid_tentacle2 .squid_tentaclei::before,
+.squid_tentacle2 .squid_tentaclej::before,
+.squid_tentacle2 .squid_tentaclek::before,
+.squid_tentacle1 .squid_tentaclef::before,
+.squid_tentacle1 .squid_tentacleg::before,
+.squid_tentacle5 .squid_tentaclea::before,
+.squid_tentacle5 .squid_tentacleb::before,
+.squid_tentacle5 .squid_tentaclec::before,
+.squid_tentacle5 .squid_tentacled::before,
+.squid_tentacle5 .squid_tentaclee::before,
+.squid_tentacle5 .squid_tentaclef::before,
+.squid_tentacle5 .squid_tentacleg::before,
+.squid_tentacle6 .squid_tentaclea::before,
+.squid_tentacle6 .squid_tentacleb::before,
+.squid_tentacle6 .squid_tentaclec::before,
+.squid_tentacle6 .squid_tentacled::before,
+.squid_tentacle6 .squid_tentaclee::before,
+.squid_tentacle6 .squid_tentaclef::before,
+.squid_tentacle6 .squid_tentacleg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 54%;
+  background-color: #ffa2c1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 1;
+}
+.squid_tentacle3 .squid_tentacleh::after,
+.squid_tentacle3 .squid_tentaclei::after,
+.squid_tentacle3 .squid_tentaclej::after,
+.squid_tentacle3 .squid_tentaclek::after,
+.squid_tentacle3 .squid_tentaclel::after,
+.squid_tentacle3 .squid_tentaclem::after,
+.squid_tentacle4 .squid_tentaclee::after,
+.squid_tentacle4 .squid_tentaclef::after,
+.squid_tentacle4 .squid_tentacleg::after,
+.squid_tentacle2 .squid_tentacleh::after,
+.squid_tentacle2 .squid_tentaclei::after,
+.squid_tentacle2 .squid_tentaclej::after,
+.squid_tentacle2 .squid_tentaclek::after,
+.squid_tentacle1 .squid_tentaclef::after,
+.squid_tentacle1 .squid_tentacleg::after,
+.squid_tentacle5 .squid_tentaclea::after,
+.squid_tentacle5 .squid_tentacleb::after,
+.squid_tentacle5 .squid_tentaclec::after,
+.squid_tentacle5 .squid_tentacled::after,
+.squid_tentacle5 .squid_tentaclee::after,
+.squid_tentacle5 .squid_tentaclef::after,
+.squid_tentacle5 .squid_tentacleg::after,
+.squid_tentacle6 .squid_tentaclea::after,
+.squid_tentacle6 .squid_tentacleb::after,
+.squid_tentacle6 .squid_tentaclec::after,
+.squid_tentacle6 .squid_tentacled::after,
+.squid_tentacle6 .squid_tentaclee::after,
+.squid_tentacle6 .squid_tentaclef::after,
+.squid_tentacle6 .squid_tentacleg::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14%;
+  height: 20%;
+  background-color: #920035;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 1;
+}
+.squid_tentacle3 .squid_tentaclei {
+  transform: rotate(-10deg);
+}
+.squid_tentacle3 .squid_tentaclej {
+  transform: rotate(40deg);
+}
+.squid_tentacle3 .squid_tentaclek {
+  transform: rotate(15deg);
+}
+.squid_tentacle3 .squid_tentaclel {
+  transform: rotate(74deg);
+}
+.squid_tentacle3 .squid_tentaclem {
+  transform: rotate(30deg);
+}
+.squid_tentacle3 .squid_tentaclez {
+  transform: rotate(-75deg);
+}
+
+.squid_tentacle4 {
+  top: 66px;
+  left: 91px;
+  background-color: currentColor;
+  transform: rotate(-99deg);
+  --baseRotate: -30deg;
+  z-index: -2;
+}
+.squid_tentacle4 .squid_tentaclea {
+  top: 17px !important;
+  left: -7px !important;
+  transform: rotate(-24deg);
+}
+.squid_tentacle4 .squid_tentacleb {
+  transform: rotate(-12deg);
+}
+.squid_tentacle4 .squid_tentaclec {
+  transform: rotate(-30deg);
+}
+.squid_tentacle4 .squid_tentacled {
+  transform: rotate(0deg);
+  color: #ff5e93;
+  --baseRotate: 40deg;
+}
+.squid_tentacle4 .squid_tentaclee {
+  transform: rotate(30deg);
+}
+.squid_tentacle4 .squid_tentaclef {
+  transform: rotate(40deg);
+}
+.squid_tentacle4 .squid_tentacleg {
+  transform: rotate(40deg);
+}
+.squid_tentacle4 .squid_tentaclez {
+  transform: rotate(-6deg);
+}
+.squid_tentacle5 {
+  top: 80px;
+  left: 54px;
+  color: #a3003c;
+  background-color: currentColor;
+  transform: rotate(-20deg);
+  --baseRotate: 20deg;
+  z-index: -3;
+}
+.squid_tentacle5 .squid_tentaclea {
+  top: 17px !important;
+  left: -7px !important;
+  transform: rotate(-20deg);
+}
+.squid_tentacle5 .squid_tentacleb {
+  transform: rotate(20deg);
+}
+.squid_tentacle5 .squid_tentaclec {
+  transform: rotate(20deg);
+}
+.squid_tentacle5 .squid_tentacled {
+  transform: rotate(20deg);
+  --baseRotate: -40deg;
+}
+.squid_tentacle5 .squid_tentaclee {
+  transform: rotate(20deg);
+}
+.squid_tentacle5 .squid_tentaclef {
+  transform: rotate(-20deg);
+}
+.squid_tentacle5 .squid_tentacleg {
+  transform: rotate(-30deg);
+}
+.squid_tentacle5 .squid_tentaclez {
+  transform: rotate(-60deg);
+}
+
+.squid_tentacle6 {
+  top: 74px;
+  left: 82px;
+  color: #a3003c;
+  background-color: currentColor;
+  transform: rotate(-70deg);
+  --baseRotate: 20deg;
+  z-index: -3;
+}
+.squid_tentacle6 .squid_tentaclea {
+  top: 17px !important;
+  left: -7px !important;
+  transform: rotate(-20deg);
+}
+.squid_tentacle6 .squid_tentacleb {
+  transform: rotate(20deg);
+  --baseRotate: -30deg;
+}
+.squid_tentacle6 .squid_tentaclec {
+  transform: rotate(20deg);
+}
+.squid_tentacle6 .squid_tentacled {
+  transform: rotate(20deg);
+  --baseRotate: 40deg;
+}
+.squid_tentacle6 .squid_tentaclee {
+  transform: rotate(20deg);
+}
+.squid_tentacle6 .squid_tentaclef {
+  transform: rotate(-20deg);
+}
+.squid_tentacle6 .squid_tentacleg {
+  transform: rotate(-30deg);
+}
+.squid_tentacle6 .squid_tentaclez {
+  transform: rotate(-60deg);
+  --baseRotate: 10deg;
+}
+/* ------------------------------------------------------------------ */
 .leftPanel__album {
-  height: 436px;
+  height: 448px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .leftPanel__albumItem {

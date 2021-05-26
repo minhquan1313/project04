@@ -1,3 +1,32 @@
+function removeLoader() {
+  let loader = document.getElementById("popUpLoader");
+  let squid = document.getElementsByClassName("loader__animal");
+  let lines = document.getElementsByClassName("bombLines");
+
+  lines[0].style.animation = "bombLines 5s ease-out forwards";
+  squid[0].setAttribute(
+    "style",
+    "transition: all ease 0.3s; transform: scale(0);"
+  );
+  setTimeout(() => {
+    let popup = document.getElementById("popup");
+    popup.setAttribute(
+      "style",
+      "backdrop-filter: none; background-color: transparent; pointer-events: none"
+    );
+    loader.setAttribute(
+      "style",
+      "transition: all ease-in 1s; transform: translateY(-100%)"
+    );
+    setTimeout(() => {
+      popup.innerHTML = "";
+      setTimeout(() => {
+        popup.removeAttribute("style");
+        popup.style.display = "none";
+      }, 300);
+    }, 1000);
+  }, 800);
+}
 // Getting url for embedding to the website logo --------------------
 var redirectParentWebpage = document.getElementById("logo");
 redirectParentWebpage.onclick = function () {
@@ -30,7 +59,7 @@ redirectParentWebpage.onclick = function () {
   // window.location.replace();
 };
 
-document.getElementById("bgAudio").volume = 0.1;
+document.getElementById("bgAudio").volume = 0.02;
 
 // Track mouse when hover over options on screen --------------------
 var optionList = document.querySelectorAll("li.optionList__item");
@@ -66,6 +95,8 @@ var musicPlaying = document.querySelector('i[class*="ti-control-pause"]');
 // background music and to change play/pause button when clicked
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
+    removeLoader();
+    // Audio
     var nameAudio = audioControl.querySelector(".audioControl__Name");
     nameAudio.innerHTML = musicName;
 
@@ -106,7 +137,17 @@ document.onreadystatechange = () => {
 // }
 
 //PopUp initializing ------------------------------------------------
-const popup = document.getElementById("popup");
+if (document.getElementById("popup")) {
+  const popup = document.getElementById("popup");
+} else {
+  let temp = document.createElement("div");
+  let body = document.querySelector("body");
+  temp.classList.add("popup");
+  temp.setAttribute("id", "popup");
+  temp.style.display = "none";
+  body.prepend(temp);
+  const popup = document.getElementById("popup");
+}
 const delay = 200;
 const bgVideo = document.getElementById("bgVideo");
 // console.log(bgVideo.readyState);
@@ -155,6 +196,7 @@ popup.onclick = function (e) {
 // console.log(popup.tagName);
 function popupError(e) {
   getPopup();
+  let animateDur = 0.4;
   const popupError = document.createElement("div");
   popupError.classList.add("popupError");
 
@@ -185,100 +227,103 @@ function popupError(e) {
     }
   }
 
+  popupError.style.animation = `popupError ${animateDur}s ease`;
   // Set content for the popupError variable ------------------------
-  popupError.innerHTML = `
-      <div class="popupError">
-        <div class="popupError__P">
-          <div class="popupError__P-phone">
-            <div class="whiteScreen">
-              <div class="topBunnyEar"></div>
+  popupError.innerHTML = `<div class="popupError__P">
+    <div class="popupError__P-phone">
+      <div class="whiteScreen">
+        <div class="topBunnyEar"></div>
 
-              <div class="roundShape">
-                <div
-                  class="xShape"
-                  style="--rotate: 45deg; --xShape-delay: 0.2s"
-                ></div>
+        <div class="roundShape">
+          <div
+            class="xShape"
+            style="--rotate: 45deg; --xShape-delay: ${animateDur / 2 + 0.2}s"
+          ></div>
 
-                <div
-                  class="xShape"
-                  style="--rotate: -45deg; --xShape-delay: 0s"
-                ></div>
-              </div>
+          <div
+            class="xShape"
+            style="--rotate: -45deg; --xShape-delay: ${animateDur / 2 + 0}s"
+          ></div>
+        </div>
 
-              <div class="msgBox">
-                <div class="msgBox__inner" style="--xShape-delay: 0.4s">
-                  <div class="roundShape roundShape--msg">
-                    <div
-                      class="xShape"
-                      style="--rotate: 0deg; --xShape-delay: 0.6s"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="msgBox__inner" style="--xShape-delay: 0.5s">
-                  <div class="roundShape roundShape--msg">
-                    <div
-                      class="xShape"
-                      style="--rotate: 0deg; --xShape-delay: 0.7s"
-                    ></div>
-                  </div>
-                </div>
-
-                <div class="msgBox__inner" style="--xShape-delay: 0.6s">
-                  <div class="roundShape roundShape--msg">
-                    <div
-                      class="xShape"
-                      style="--rotate: 0deg; --xShape-delay: 0.8s"
-                    ></div>
-                  </div>
-                </div>
-              </div>
+        <div class="msgBox">
+          <div class="msgBox__inner" style="--xShape-delay: ${
+            animateDur / 2 + 0.4
+          }s">
+            <div class="roundShape roundShape--msg">
+              <div
+                class="xShape"
+                style="--rotate: 0deg; --xShape-delay: ${animateDur / 2 + 0.6}s"
+              ></div>
             </div>
           </div>
 
-          <div class="popupError__P-lineWFlower">
-            <div class="line">
-              <div class="flower1">
-                <div class="flower1__canh"></div>
-                <div class="flower1__hoa"></div>
-              </div>
+          <div class="msgBox__inner" style="--xShape-delay: ${
+            animateDur / 2 + 0.5
+          }s">
+            <div class="roundShape roundShape--msg">
+              <div
+                class="xShape"
+                style="--rotate: 0deg; --xShape-delay: ${animateDur / 2 + 0.7}s"
+              ></div>
+            </div>
+          </div>
 
-              <div class="flower2">
-                <div class="flower2__canh"></div>
-
-                <div class="flower2__hoa-sub flower2__hoa-subP1"></div>
-                <div class="flower2__hoa"></div>
-                <div class="flower2__hoa-sub flower2__hoa-subP2"></div>
-              </div>
+          <div class="msgBox__inner" style="--xShape-delay: ${
+            animateDur / 2 + 0.6
+          }s">
+            <div class="roundShape roundShape--msg">
+              <div
+                class="xShape"
+                style="--rotate: 0deg; --xShape-delay: ${animateDur / 2 + 0.8}s"
+              ></div>
             </div>
           </div>
         </div>
-
-        <div class="popupError__404">
-          <div class="popupError__404-inner">
-            <div class="popupError__4">
-              <div class="line-u" style="--timeL-u: 0s"></div>
-              <div class="line-u" style="--timeL-u: 0.3s"></div>
-              <div class="line-4"></div>
-            </div>
-            <div class="popupError__0">
-              <div class="line-u0 line-u0--1"></div>
-              <div class="line-u0 line-u0--2"></div>
-              <div class="line-u0 line-u0--3"></div>
-            </div>
-            <div class="popupError__4">
-              <div class="line-u" style="--timeL-u: 0.1s"></div>
-              <div class="line-u" style="--timeL-u: 0.4s"></div>
-              <div class="line-4"></div>
-            </div>
-          </div>
-        </div>
-
-        <p class="popupError__desc">
-          Sorry the ${text} is not yet developed 😭
-        </p>
       </div>
-  `;
+    </div>
+
+    <div class="popupError__P-lineWFlower">
+      <div class="line">
+        <div class="flower1">
+          <div class="flower1__canh"></div>
+          <div class="flower1__hoa"></div>
+        </div>
+
+        <div class="flower2">
+          <div class="flower2__canh"></div>
+
+          <div class="flower2__hoa-sub flower2__hoa-subP1"></div>
+          <div class="flower2__hoa"></div>
+          <div class="flower2__hoa-sub flower2__hoa-subP2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popupError__404">
+    <div class="popupError__404-inner">
+      <div class="popupError__4">
+        <div class="line-u" style="--timeL-u: ${animateDur / 2 + 0}s"></div>
+        <div class="line-u" style="--timeL-u: ${animateDur / 2 + 0.3}s"></div>
+        <div class="line-4"></div>
+      </div>
+      <div class="popupError__0">
+        <div class="line-u0 line-u0--1"></div>
+        <div class="line-u0 line-u0--2"></div>
+        <div class="line-u0 line-u0--3"></div>
+      </div>
+      <div class="popupError__4">
+        <div class="line-u" style="--timeL-u: ${animateDur / 2 + 0.1}s"></div>
+        <div class="line-u" style="--timeL-u: ${animateDur / 2 + 0.4}s"></div>
+        <div class="line-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="popupError__desc">
+    Sorry the ${text} is not yet developed 😭
+  </p>`;
 
   // Pause the background video and then write the popupError
   // variable to DOM
