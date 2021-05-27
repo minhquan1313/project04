@@ -3,15 +3,25 @@ function removeLoader() {
   if (loader) {
     let squid = document.getElementsByClassName("loader__animal");
     let lines = document.getElementsByClassName("bombLines");
+    let body = document.getElementsByTagName("body");
+    let loadText = document.getElementsByClassName("loader__Progr");
+    let popup = document.getElementById("popup");
 
+    body[0].style.paddingTop = "100vh";
+    //Scale the squid to 0 and pop out the round lines
     setTimeout(() => {
-      lines[0].style.animation = "bombLines 5s linear forwards";
+      lines[0].style.animation = "bombLines 5s -0.4s linear forwards";
       squid[0].setAttribute(
         "style",
-        "transition: all ease 0.3s; transform: scale(0);"
+        "transition: all ease 0.5s; transform: scale(0);"
       );
+      loadText[0].style.transition = "all 0.6s ease-in";
+      loadText[0].style.transformOrigin = "top";
+      loadText[0].style.transform = "scale(0) rotate(360deg)";
+      loadText[0].style.top = "50%";
+
+      // Make the popup background to visible through and pull up the loader background
       setTimeout(() => {
-        let popup = document.getElementById("popup");
         popup.setAttribute(
           "style",
           "backdrop-filter: none; background-color: transparent; pointer-events: none"
@@ -20,9 +30,13 @@ function removeLoader() {
           "style",
           "transition: all ease-in 0.6s; transform: translateY(-100%)"
         );
+        body[0].style.transition = "all 0.6s ease-in";
+        body[0].style.paddingTop = "0";
+        //Complete remove the popup background
         setTimeout(() => {
           popup.innerHTML = "";
           popup.setAttribute("style", "display: none");
+          body[0].removeAttribute("style");
         }, 700);
       }, 800);
     }, 1000);
@@ -59,7 +73,7 @@ redirectParentWebpage.onclick = () => {
   // window.location.replace();
 };
 
-document.getElementById("bgAudio").volume = 0.02;
+document.getElementById("bgAudio").volume = 0.05;
 
 // Track mouse when hover over options on screen --------------------
 var optionList = document.querySelectorAll("li.optionList__item");
