@@ -159,8 +159,8 @@ function initializingImgs(e) {
     this.name = na;
     if (!de) de = "Chua cap nhat thong tin";
     this.desc = de;
-    this.src = "../resources/img/albumRightHand/" + ur;
-    this.error = "../resources/img/albumRightHand/error.svg";
+    this.src = "./resources/img/albumRightHand/" + ur;
+    this.error = "./resources/img/albumRightHand/error.svg";
   }
   if (e == 1) {
     let album = document.getElementById("imgAlbumRightHand");
