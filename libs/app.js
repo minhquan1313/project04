@@ -3,6 +3,8 @@ document.onreadystatechange = () => {
     if (!document.getElementById("popup")) createPopup();
     const popup = document.getElementById("popup");
 
+    defineStringPrototype();
+    cookieFunc();
     embedHomeUrl();
     setVolume(0.02);
     musicNBackGControl();
@@ -10,15 +12,50 @@ document.onreadystatechange = () => {
 
     // margin-top: calc(12px - 224px * 1);
     rollOnClick();
-    window.onresize = () => {
-      rollOnClick();
-    };
     popupFunc();
     setDraggableFalse();
     removeLoader();
   }
 };
 // **************************************************************************************************************************************************
+function defineStringPrototype() {
+  // String.prototype.
+}
+function cookieFunc() {
+  let temp = document.querySelector(".exploit__subTit");
+  const allCookie = readAll();
+  const today = new Date();
+  console.log(new Date(today.getTime()));
+  function readAll() {
+    return document.cookie;
+  }
+  function read(e) {
+    let array = allCookie.split(";");
+    let result = array.find((ee) => {
+      return ee.includes(e);
+    });
+
+    if (result) result = result.substr(result.indexOf("=") + 1);
+
+    return result;
+  }
+  function write(keyName, value, y, m, d) {
+    if (!value) value = "";
+
+    if (y || m || d) {
+      if (!y) y = 0;
+      if (!m) m = 0;
+      if (!d) d = 0;
+
+      let dayChange = new Date(today.getFullYear() + y, today.getMonth() + m, today.getDay() + d);
+      let expire = "expires=" + dayChange.toUTCString();
+
+      document.cookie = keyName + "=" + value + "; " + expire + "; Secure";
+    } else {
+      document.cookie = keyName + "=" + value + "; " + "Secure";
+    }
+  }
+}
 function createPopup() {
   let popup = document.createElement("div");
   popup.setAttribute("class", "popup");
@@ -190,6 +227,9 @@ function initializingImgs(e) {
 }
 function rollOnClick() {
   let imgLi = document.querySelectorAll(".rightPanel__albumItem");
+  window.onresize = () => {
+    imgLi = document.querySelectorAll(".rightPanel__albumItem");
+  };
   if (imgLi.length > 0) {
     let imgUl = document.querySelector(".rightPanel__album");
     let numberOfPictures = parseInt(imgUl.clientHeight / imgLi[0].clientHeight);
@@ -270,6 +310,21 @@ function rollOnClick() {
                 }
               }
             imgRoll(num);
+            // console.log("imgUl");
+            // console.log(imgUl);
+            // console.log("numberOfPictures");
+            // console.log(numberOfPictures);
+            // console.log("btns");
+            // console.log(btns);
+            // console.log("imgToDisplay");
+            // console.log(imgToDisplay);
+            // console.log("imgHeight");
+            // console.log(imgHeight);
+            // console.log("imgMargin");
+            // console.log(imgMargin);
+            // console.log("num");
+            // console.log(num);
+            // console.log("-----------------------------------");
           }
         });
       } else {
@@ -304,6 +359,22 @@ function rollOnClick() {
         });
       }
     }
+    window.onresize = () => {
+      for (let i of imgLi) {
+        i.style.transition = "";
+      }
+      imgUl = document.querySelector(".rightPanel__album");
+      let imgHeightTemp = imgHeight;
+      imgHeight = imgLi[0].clientHeight;
+      let isChanged = imgHeightTemp != imgHeight ? true : false;
+      if (isChanged) {
+        numberOfPictures = parseInt(imgUl.clientHeight / imgLi[0].clientHeight);
+        btns = document.querySelectorAll(".rightPanel__btn");
+        imgToDisplay = imgLi.length - numberOfPictures + 1;
+        imgMargin = parseInt(window.getComputedStyle(imgLi[1]).marginTop);
+        imgRoll(num);
+      }
+    };
   }
 }
 function popupFunc() {

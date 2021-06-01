@@ -1784,15 +1784,15 @@ body {
 /* 940px */
 @media (max-width: 58.75em) {
   .rightPanel__album {
-    height: 224px;
+    height: 300px;
   }
   .rightPanel {
     top: 0;
     transform: none;
   }
   .rightPanel__albumItem {
-    /* width: 150px; */
-    /* height: 88px; */
+    width: 200px;
+    height: 128px;
   }
   /* ********************************************************************************************************************************************* */
   .exploit__title {
@@ -1801,7 +1801,7 @@ body {
 }
 /* 600px */
 @media (max-width: 37.5em) {
-  .rightPanel__album {
+  /* .rightPanel__album {
     height: 224px;
   }
   .rightPanel {
@@ -1811,7 +1811,7 @@ body {
   .rightPanel__albumItem {
     width: 150px;
     height: 88px;
-  }
+  } */
   /* ********************************************************************************************************************************************* */
   .audioControl__Name {
     position: absolute;
@@ -1831,6 +1831,17 @@ body {
 }
 /* 500px */
 @media (max-width: 31.25em) {
+  .rightPanel__album {
+    height: 224px;
+  }
+  .rightPanel {
+    top: 0;
+    transform: none;
+  }
+  .rightPanel__albumItem {
+    width: 150px;
+    height: 88px;
+  }
 }
 /* 400px */
 @media (max-width: 25em) {
@@ -1860,8 +1871,10 @@ body {
   .exploit__subTit {
     display: none;
   }
-} /* 400px HEIGHT */
-@media (max-height: 25em) {
+  /* ********************************************************************************************************************************************* */
+}
+/* 600px HEIGHT */
+@media (max-height: 37.5em) {
   .exploit {
     display: none;
   }
@@ -1870,11 +1883,26 @@ body {
     top: 90px;
   }
   /* ********************************************************************************************************************************************* */
+  .rightPanel__album {
+    height: 224px;
+  }
   .rightPanel {
-    display: none;
+    top: 0;
+    transform: none;
+  }
+  .rightPanel__albumItem {
+    width: 150px;
+    height: 88px;
   }
   /* ********************************************************************************************************************************************* */
   .optionList__item {
     padding: calc(var(--baseMargin) / 5) var(--baseMargin);
+  }
+}
+/* 500px HEIGHT */
+@media (max-height: 31.25em) {
+  .rightPanel {
+    visibility: hidden;
+    pointer-events: none;
   }
 }
