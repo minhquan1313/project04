@@ -94,10 +94,6 @@ function removeLoader() {
         }, 700);
       }, 800);
     }, 1000);
-  } else {
-    // let popup = document.getElementById("popup");
-    popup.innerHTML = "";
-    popup.style.display = "none";
   }
 }
 function musicNBackGControl() {
@@ -189,7 +185,6 @@ function initializingImgs(e) {
   }
 }
 function rollOnClick() {
-  // ********************************************************************************************
   let imgLi = document.querySelectorAll(".rightPanel__albumItem");
   if (imgLi.length > 0) {
     let numberOfPictures = 2;
@@ -224,6 +219,20 @@ function rollOnClick() {
           }
         });
       }
+
+      imgUl.addEventListener("wheel", (e) => {
+        if (e.deltaY > 0) {
+          //down
+          num += 1;
+          if (num > imgToDisplay) num = imgToDisplay;
+          if (num < 1) num = 1;
+          imgRoll(num);
+        } else {
+          num -= 1;
+          if (num < 1) num = 1;
+          imgRoll(num);
+        }
+      });
     }
     function onDrag() {
       let pressed = false,
@@ -478,13 +487,16 @@ function popupFunc() {
     popup.appendChild(popupImg);
     // ----------------------------------------------------------------------------------------------------------------------------------------------
     function imgControl(imgDiv) {
-      let img = imgDiv.children[0];
+      let img = imgDiv.querySelector("img");
       let zoom = 1;
       popup.addEventListener("wheel", (e) => {
-        let delta = e.deltaY * -0.001;
-        if (zoom + delta > 0.001) zoom += delta;
-        imgDiv.style.transition = "all 0.1s ease";
-        imgDiv.style.transform = `scale(${zoom.toFixed(2)})`;
+        let delta = e.deltaY < 0 ? 0.1 : -0.1;
+        console.log(delta);
+        zoom += delta;
+        if (zoom >= 0.1 && zoom <= 10) {
+          imgDiv.style.transition = "all 0.1s ease";
+          imgDiv.style.transform = `scale(${zoom.toFixed(2)})`;
+        } else zoom -= delta;
       });
 
       let pressed = false,
