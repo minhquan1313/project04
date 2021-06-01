@@ -4,14 +4,18 @@ document.onreadystatechange = () => {
     const popup = document.getElementById("popup");
 
     embedHomeUrl();
-    setVolume(0.03);
-    removeLoader();
+    setVolume(0.02);
     musicNBackGControl();
     initializingImgs(1);
-    rollOnClick();
+
     // margin-top: calc(12px - 224px * 1);
+    rollOnClick();
+    window.onresize = () => {
+      rollOnClick();
+    };
     popupFunc();
     setDraggableFalse();
+    removeLoader();
   }
 };
 // **************************************************************************************************************************************************
@@ -187,11 +191,11 @@ function initializingImgs(e) {
 function rollOnClick() {
   let imgLi = document.querySelectorAll(".rightPanel__albumItem");
   if (imgLi.length > 0) {
-    let numberOfPictures = 2;
+    let imgUl = document.querySelector(".rightPanel__album");
+    let numberOfPictures = parseInt(imgUl.clientHeight / imgLi[0].clientHeight);
     let btns = document.querySelectorAll(".rightPanel__btn");
     let imgToDisplay = imgLi.length - numberOfPictures + 1;
     let imgHeight = imgLi[0].clientHeight;
-    let imgUl = document.querySelector(".rightPanel__album");
     let imgMargin = parseInt(window.getComputedStyle(imgLi[0]).marginTop);
     let num = 1;
 
@@ -464,6 +468,17 @@ function popupFunc() {
     // variable to DOM
     pauseBackgroundVideo(bgVideo);
     popup.appendChild(popupError);
+
+    let popupInnerH = popupError.clientHeight;
+    let phoneInner = popupError.querySelector(".popupError__P-phone");
+    if (phoneInner.clientHeight >= popupInnerH) {
+      let phoneBoxH = popupError.querySelector(".popupError__P").clientWidth;
+      do {
+        phoneBoxH -= 10;
+      } while (phoneBoxH * 2 >= popupInnerH);
+      phoneBoxH -= 10;
+      popupError.querySelector(".popupError__P").style.width = phoneBoxH + "px";
+    }
   }
 
   function popupImg(e) {
