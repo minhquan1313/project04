@@ -4,7 +4,7 @@ document.onreadystatechange = () => {
     const popup = document.getElementById("popup");
 
     embedHomeUrl();
-    setVolume(0.05);
+    setVolume(0.03);
     removeLoader();
     musicNBackGControl();
     initializingImgs(1);
